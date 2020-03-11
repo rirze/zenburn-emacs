@@ -149,9 +149,9 @@ Each element has the form (NAME . HEX).
 
 (defmacro zenburn-with-color-variables (&rest body)
   "`let' bind all colors defined in `zenburn-colors-alist' around BODY.
-Also bind `class' to ((class color) (min-colors 89))."
+Also bind `z-class' to ((z-class color) (min-colors 89))."
   (declare (indent 0))
-  `(let ((class '((class color) (min-colors 89)))
+  `(let ((z-class '((z-class color) (min-colors 89)))
          ,@(mapcar (lambda (cons)
                      (list (intern (car cons)) (cdr cons)))
                    (append zenburn-default-colors-alist
@@ -204,7 +204,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(custom-group-tag ((t (:foreground ,zenburn-blue :weight bold :height 1.2))))
    `(custom-state ((t (:foreground ,zenburn-green+4))))
 ;;;;; display-fill-column-indicator
-     `(fill-column-indicator ((,class :foreground ,zenburn-bg-05 :weight semilight)))
+     `(fill-column-indicator ((,z-class :foreground ,zenburn-bg-05 :weight semilight)))
 ;;;;; eww
    '(eww-invalid-certificate ((t (:inherit error))))
    '(eww-valid-certificate   ((t (:inherit success))))
@@ -232,7 +232,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(menu ((t (:foreground ,zenburn-fg :background ,zenburn-bg))))
    `(minibuffer-prompt ((t (:foreground ,zenburn-yellow))))
    `(mode-line
-     ((,class (:foreground ,zenburn-green+1
+     ((,z-class (:foreground ,zenburn-green+1
                            :background ,zenburn-bg-1
                            :box (:line-width -1 :style released-button)))
       (t :inverse-video t)))
@@ -241,7 +241,7 @@ Also bind `class' to ((class color) (min-colors 89))."
      ((t (:foreground ,zenburn-green-2
                       :background ,zenburn-bg-05
                       :box (:line-width -1 :style released-button)))))
-   `(region ((,class (:background ,zenburn-bg-1 :extend t))
+   `(region ((,z-class (:background ,zenburn-bg-1 :extend t))
              (t :inverse-video t)))
    `(secondary-selection ((t (:background ,zenburn-bg+2))))
    `(trailing-whitespace ((t (:background ,zenburn-red))))
@@ -456,15 +456,15 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(diff-refine-added   ((t (:background "#338833" :foreground ,zenburn-green+4))))
    `(diff-refine-changed ((t (:background "#888811" :foreground ,zenburn-yellow))))
    `(diff-refine-removed ((t (:background "#883333" :foreground ,zenburn-red))))
-   `(diff-header ((,class (:background ,zenburn-bg+2))
+   `(diff-header ((,z-class (:background ,zenburn-bg+2))
                   (t (:background ,zenburn-fg :foreground ,zenburn-bg))))
    `(diff-file-header
-     ((,class (:background ,zenburn-bg+2 :foreground ,zenburn-fg :weight bold))
+     ((,z-class (:background ,zenburn-bg+2 :foreground ,zenburn-fg :weight bold))
       (t (:background ,zenburn-fg :foreground ,zenburn-bg :weight bold))))
 ;;;;; diff-hl
-   `(diff-hl-change ((,class (:foreground ,zenburn-blue :background ,zenburn-blue-2))))
-   `(diff-hl-delete ((,class (:foreground ,zenburn-red+1 :background ,zenburn-red-1))))
-   `(diff-hl-insert ((,class (:foreground ,zenburn-green+1 :background ,zenburn-green-2))))
+   `(diff-hl-change ((,z-class (:foreground ,zenburn-blue :background ,zenburn-blue-2))))
+   `(diff-hl-delete ((,z-class (:foreground ,zenburn-red+1 :background ,zenburn-red-1))))
+   `(diff-hl-insert ((,z-class (:foreground ,zenburn-green+1 :background ,zenburn-green-2))))
 ;;;;; dim-autoload
    `(dim-autoload-cookie-line ((t :foreground ,zenburn-bg+1)))
 ;;;;; dired+
@@ -661,11 +661,11 @@ Also bind `class' to ((class color) (min-colors 89))."
    '(git-annex-dired-annexed-available ((t (:inherit success :weight normal))))
    '(git-annex-dired-annexed-unavailable ((t (:inherit error :weight normal))))
 ;;;;; git-commit
-   `(git-commit-comment-action  ((,class (:foreground ,zenburn-green+1 :weight bold))))
-   `(git-commit-comment-branch  ((,class (:foreground ,zenburn-blue+1  :weight bold)))) ; obsolete
-   `(git-commit-comment-branch-local  ((,class (:foreground ,zenburn-blue+1  :weight bold))))
-   `(git-commit-comment-branch-remote ((,class (:foreground ,zenburn-green  :weight bold))))
-   `(git-commit-comment-heading ((,class (:foreground ,zenburn-yellow  :weight bold))))
+   `(git-commit-comment-action  ((,z-class (:foreground ,zenburn-green+1 :weight bold))))
+   `(git-commit-comment-branch  ((,z-class (:foreground ,zenburn-blue+1  :weight bold)))) ; obsolete
+   `(git-commit-comment-branch-local  ((,z-class (:foreground ,zenburn-blue+1  :weight bold))))
+   `(git-commit-comment-branch-remote ((,z-class (:foreground ,zenburn-green  :weight bold))))
+   `(git-commit-comment-heading ((,z-class (:foreground ,zenburn-yellow  :weight bold))))
 ;;;;; git-gutter
    `(git-gutter:added ((t (:foreground ,zenburn-green :weight bold :inverse-video t))))
    `(git-gutter:deleted ((t (:foreground ,zenburn-red :weight bold :inverse-video t))))
@@ -809,12 +809,12 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(helm-swoop-target-line-face ((t (:foreground ,zenburn-fg :background ,zenburn-bg+1))))
    `(helm-swoop-target-word-face ((t (:foreground ,zenburn-yellow :background ,zenburn-bg+2 :weight bold))))
 ;;;;; hl-line-mode
-   `(hl-line-face ((,class (:background ,zenburn-bg-05))
+   `(hl-line-face ((,z-class (:background ,zenburn-bg-05))
                    (t :weight bold)))
-   `(hl-line ((,class (:background ,zenburn-bg-05 :extend t)) ; old emacsen
+   `(hl-line ((,z-class (:background ,zenburn-bg-05 :extend t)) ; old emacsen
               (t :weight bold)))
 ;;;;; hl-sexp
-   `(hl-sexp-face ((,class (:background ,zenburn-bg+1))
+   `(hl-sexp-face ((,z-class (:background ,zenburn-bg+1))
                    (t :weight bold)))
 ;;;;; hydra
    `(hydra-face-red ((t (:foreground ,zenburn-red-1 :background ,zenburn-bg))))
@@ -835,7 +835,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(info-single-quote ((t (:inherit font-lock-keyword-face))))
    `(info-special-form-ref-item ((t (:background ,zenburn-bg-1 :foreground ,zenburn-yellow))))
    `(info-string ((t (:inherit font-lock-string-face))))
-   `(info-syntax-class-item ((t (:background ,zenburn-bg-1 :foreground ,zenburn-blue+1))))
+   `(info-syntax-z-class-item ((t (:background ,zenburn-bg-1 :foreground ,zenburn-blue+1))))
    `(info-user-option-ref-item ((t (:background ,zenburn-bg-1 :foreground ,zenburn-red))))
    `(info-variable-ref-item ((t (:background ,zenburn-bg-1 :foreground ,zenburn-orange))))
 ;;;;; irfc
@@ -1363,23 +1363,23 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(show-paren-match ((t (:foreground ,zenburn-fg :background ,zenburn-bg+3 :weight bold))))
 ;;;;; smart-mode-line
    ;; use (setq sml/theme nil) to enable Zenburn for sml
-   `(sml/global ((,class (:foreground ,zenburn-fg :weight bold))))
-   `(sml/modes ((,class (:foreground ,zenburn-yellow :weight bold))))
-   `(sml/minor-modes ((,class (:foreground ,zenburn-fg-1 :weight bold))))
-   `(sml/filename ((,class (:foreground ,zenburn-yellow :weight bold))))
-   `(sml/line-number ((,class (:foreground ,zenburn-blue :weight bold))))
-   `(sml/col-number ((,class (:foreground ,zenburn-blue+1 :weight bold))))
-   `(sml/position-percentage ((,class (:foreground ,zenburn-blue-1 :weight bold))))
-   `(sml/prefix ((,class (:foreground ,zenburn-orange))))
-   `(sml/git ((,class (:foreground ,zenburn-green+3))))
-   `(sml/process ((,class (:weight bold))))
-   `(sml/sudo ((,class  (:foreground ,zenburn-orange :weight bold))))
-   `(sml/read-only ((,class (:foreground ,zenburn-red-2))))
-   `(sml/outside-modified ((,class (:foreground ,zenburn-orange))))
-   `(sml/modified ((,class (:foreground ,zenburn-red))))
-   `(sml/vc-edited ((,class (:foreground ,zenburn-green+2))))
-   `(sml/charging ((,class (:foreground ,zenburn-green+4))))
-   `(sml/discharging ((,class (:foreground ,zenburn-red+1))))
+   `(sml/global ((,z-class (:foreground ,zenburn-fg :weight bold))))
+   `(sml/modes ((,z-class (:foreground ,zenburn-yellow :weight bold))))
+   `(sml/minor-modes ((,z-class (:foreground ,zenburn-fg-1 :weight bold))))
+   `(sml/filename ((,z-class (:foreground ,zenburn-yellow :weight bold))))
+   `(sml/line-number ((,z-class (:foreground ,zenburn-blue :weight bold))))
+   `(sml/col-number ((,z-class (:foreground ,zenburn-blue+1 :weight bold))))
+   `(sml/position-percentage ((,z-class (:foreground ,zenburn-blue-1 :weight bold))))
+   `(sml/prefix ((,z-class (:foreground ,zenburn-orange))))
+   `(sml/git ((,z-class (:foreground ,zenburn-green+3))))
+   `(sml/process ((,z-class (:weight bold))))
+   `(sml/sudo ((,z-class  (:foreground ,zenburn-orange :weight bold))))
+   `(sml/read-only ((,z-class (:foreground ,zenburn-red-2))))
+   `(sml/outside-modified ((,z-class (:foreground ,zenburn-orange))))
+   `(sml/modified ((,z-class (:foreground ,zenburn-red))))
+   `(sml/vc-edited ((,z-class (:foreground ,zenburn-green+2))))
+   `(sml/charging ((,z-class (:foreground ,zenburn-green+4))))
+   `(sml/discharging ((,z-class (:foreground ,zenburn-red+1))))
 ;;;;; smartparens
    `(sp-show-pair-mismatch-face ((t (:foreground ,zenburn-red+1 :background ,zenburn-bg+3 :weight bold))))
    `(sp-show-pair-match-face ((t (:background ,zenburn-bg+3 :weight bold))))
@@ -1487,7 +1487,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(web-mode-constant-face ((t (:inherit ,font-lock-constant-face))))
    `(web-mode-css-at-rule-face ((t (:foreground ,zenburn-orange ))))
    `(web-mode-css-prop-face ((t (:foreground ,zenburn-orange))))
-   `(web-mode-css-pseudo-class-face ((t (:foreground ,zenburn-green+3 :weight bold))))
+   `(web-mode-css-pseudo-z-class-face ((t (:foreground ,zenburn-green+3 :weight bold))))
    `(web-mode-css-rule-face ((t (:foreground ,zenburn-blue))))
    `(web-mode-doctype-face ((t (:inherit ,font-lock-comment-face))))
    `(web-mode-folded-face ((t (:underline t))))
