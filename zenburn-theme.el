@@ -149,9 +149,9 @@ Each element has the form (NAME . HEX).
 
 (defmacro zenburn-with-color-variables (&rest body)
   "`let' bind all colors defined in `zenburn-colors-alist' around BODY.
-Also bind `z-class' to ((z-class color) (min-colors 89))."
+Also bind `z-class' to ((class color) (min-colors 89))."
   (declare (indent 0))
-  `(let ((z-class '((z-class color) (min-colors 89)))
+  `(let ((z-class '((class color) (min-colors 89)))
          ,@(mapcar (lambda (cons)
                      (list (intern (car cons)) (cdr cons)))
                    (append zenburn-default-colors-alist
