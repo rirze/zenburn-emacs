@@ -1266,7 +1266,7 @@ Also bind `z-class' to ((z-class color) (min-colors 89))."
 ;;;;; paren-face
    `(parenthesis ((t (:foreground ,zenburn-fg-1))))
 ;;;;; perspective
-   `(persp-selected-face ((t (:foreground ,zenburn-yellow-2 :inherit mode-line))))
+   `(persp-selected-face ((t (:foreground ,zenburn-yellow-2))))
 ;;;;; powerline
    `(powerline-active1 ((t (:background ,zenburn-bg-05 :inherit mode-line))))
    `(powerline-active2 ((t (:background ,zenburn-bg+2 :inherit mode-line))))
@@ -1355,6 +1355,10 @@ Also bind `z-class' to ((z-class color) (min-colors 89))."
    `(rst-level-4-face ((t (:foreground ,zenburn-yellow-2))))
    `(rst-level-5-face ((t (:foreground ,zenburn-cyan))))
    `(rst-level-6-face ((t (:foreground ,zenburn-green-2))))
+;;;;; selectrum
+   `(selectrum-current-candidate ((t (:foreground ,zenburn-yellow :weight bold :underline t))))
+   `(selectrum-primary-highlight ((t (:background ,zenburn-green-2))))
+   `(selectrum-secondary-highlight ((t (:background ,zenburn-green))))
 ;;;;; sh-mode
    `(sh-heredoc     ((t (:foreground ,zenburn-yellow :weight bold))))
    `(sh-quoted-exec ((t (:foreground ,zenburn-red))))
@@ -1487,7 +1491,7 @@ Also bind `z-class' to ((z-class color) (min-colors 89))."
    `(web-mode-constant-face ((t (:inherit ,font-lock-constant-face))))
    `(web-mode-css-at-rule-face ((t (:foreground ,zenburn-orange ))))
    `(web-mode-css-prop-face ((t (:foreground ,zenburn-orange))))
-   `(web-mode-css-pseudo-z-class-face ((t (:foreground ,zenburn-green+3 :weight bold))))
+   `(web-mode-css-pseudo-class-face ((t (:foreground ,zenburn-green+3 :weight bold))))
    `(web-mode-css-rule-face ((t (:foreground ,zenburn-blue))))
    `(web-mode-doctype-face ((t (:inherit ,font-lock-comment-face))))
    `(web-mode-folded-face ((t (:underline t))))
